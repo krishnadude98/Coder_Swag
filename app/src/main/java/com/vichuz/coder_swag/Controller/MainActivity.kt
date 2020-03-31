@@ -1,5 +1,6 @@
 package com.vichuz.coder_swag.Controller
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
@@ -11,6 +12,7 @@ import com.vichuz.coder_swag.Adapters.CategoryRecycleAdapter
 import com.vichuz.coder_swag.Model.Category
 import com.vichuz.coder_swag.R
 import com.vichuz.coder_swag.Services.DataService
+import com.vichuz.coder_swag.Utility.ExtraCategory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +20,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        adapter = CategoryRecycleAdapter(this,DataService.categories)
+        adapter = CategoryRecycleAdapter(this,DataService.categories){category ->
+            val productIntent= Intent(this,ProductsActivity::class.java)
+            productIntent.putExtra(ExtraCategory,category.title)
+            startActivity(productIntent)
+
+
+
+        }
         categoryListView.adapter = adapter
 
         val layoutManager=LinearLayoutManager(this)
