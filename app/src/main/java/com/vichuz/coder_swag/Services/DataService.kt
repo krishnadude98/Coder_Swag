@@ -14,27 +14,37 @@ object DataService {
         Category("Hats","hatimage"),
          Category("Digital","digitalgoodsimage")
     )
-    val Hats= listOf(
-        Product("Devslopes Graphic Beanie","50rs","hat01"),
-        Product("Devslopes Hat Black ","60rs","hat02"),
-        Product("Devslopes Hat White","70rs","hat03"),
-        Product("Devslopes Hat Snapack","40rs","hat04")
+    val hats= listOf(
+        Product("Devslopes Graphic Beanie","50rs","hat1"),
+        Product("Devslopes Hat Black ","60rs","hat2"),
+        Product("Devslopes Hat White","70rs","hat3"),
+        Product("Devslopes Hat Snapack","40rs","hat4")
 
 
     )
-    val Hoodies= listOf(
-        Product("Deveslopes Hoodie Grey","100rs","hoodie01"),
-        Product("Deveslopes Hoodie Red","170rs","hoodie02"),
-        Product("Deveslopes Grey Hoodie","108rs","hoodie03"),
-        Product("Deveslopes Black Hoodie","250rs","hoodie04")
+    val hoodies= listOf(
+        Product("Deveslopes Hoodie Grey","100rs","hoodie1"),
+        Product("Deveslopes Hoodie Red","170rs","hoodie2"),
+        Product("Deveslopes Grey Hoodie","108rs","hoodie3"),
+        Product("Deveslopes Black Hoodie","250rs","hoodie4")
     )
-    val Shirts= listOf(
-        Product("Deveslopes Shirt Black","190rs","shirt01"),
-        Product("Deveslopes Badge Light Grey","270rs","shirt02"),
-        Product("Deveslopes logo Shirt Red","308rs","shirt03"),
-        Product("Deveslopes Hustle","210rs","shirt04"),
-        Product("Kick Flip Studios","320rs","shirt05")
+    val shirts= listOf(
+        Product("Deveslopes Shirt Black","190rs","shirt1"),
+        Product("Deveslopes Badge Light Grey","270rs","shirt2"),
+        Product("Deveslopes logo Shirt Red","308rs","shirt3"),
+        Product("Deveslopes Hustle","210rs","shirt4"),
+        Product("Kick Flip Studios","320rs","shirt5")
 
     )
+    val digitalGoods= listOf<Product>()
+
+    fun getProducts(category:String):List<Product>{
+        return when (category){
+            "SHIRTS"-> shirts
+            "HOODIES"-> hoodies
+            "HATS"-> hats
+            else -> digitalGoods
+        }
+    }
 
 }
